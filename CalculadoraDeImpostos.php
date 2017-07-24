@@ -1,16 +1,12 @@
 <?php
+require_once "ICMS.php";
+require_once "ISS.php";
 /*
-dessa forma para cada novo impoto sou obrigado a crirar um if novo
+dessa informa eu injeto os requisitos da função
 */
 class CalculadoraDeImpostos{
 
-    public function Calcula(Orcamento $orcamento,$tipo){
-        if($tipo=="ICMS"){
-            $icms = $orcamento->getValor() * 0.05 ;
-              echo $icms;
-        }elseif ($tipo=="ISS") {
-           $iss = $orcamento->getValor() * 0.1;
-             echo $iss;
-        }
+    public function Calcula(Orcamento $orcamento,imposto $imposto){
+       return $imposto->calcula($orcamento);
     }
 }
